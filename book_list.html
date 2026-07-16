@@ -1,0 +1,47 @@
+
+{% extends "master/header.html" %}
+{% load static %}
+{% block content %}
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-2">
+     
+    </div>
+    <div class="col-sm-8">
+      <h2 class="text-light bg-dark p-3 text-center w-100">user List</h2>
+    </div>
+    <div class="col-lg-8m-auto">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                <th>sl.no</th>
+                <th>Name</th>
+                <th>author</th>
+                <th>description</th>
+                <th>price</th>
+                <th>photo</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in books %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{i.name}}</td>
+                    <td>{{i.author}}</td>
+                    <td>{{i.description}}</td>
+                    <td>{{i.price}}</td>
+                    <td><img src="{{i.photo.url}}" alt="{{i.name}}" width="100" ></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="col-sm-2">
+      
+    </div>
+  </div>
+</div>
+
+{% endblock %}
